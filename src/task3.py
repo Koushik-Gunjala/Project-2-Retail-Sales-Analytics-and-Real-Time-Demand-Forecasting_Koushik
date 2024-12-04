@@ -13,7 +13,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Load Data
-data = spark.read.csv('/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting_PRASHANTH_LAKKAKULA/input/Online Retail.csv', header=True, inferSchema=True)
+data = spark.read.csv('/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/input/Online Retail.csv', header=True, inferSchema=True)
 
 # Data Preprocessing
 data = data.withColumn("InvoiceDate", to_date(col("InvoiceDate"), "MM/d/yyyy H:mm"))
@@ -57,11 +57,11 @@ rmse = evaluator.evaluate(predictions, {evaluator.metricName: "rmse"})
 mae = evaluator.evaluate(predictions, {evaluator.metricName: "mae"})
 
 # Writing RMSE to a file
-with open('/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting_PRASHANTH_LAKKAKULA/output/task3_output/rmse.txt', 'w') as f:
+with open('/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/output/task3/rmse.txt', 'w') as f:
     f.write(f"Root Mean Square Error (RMSE) on test data = {rmse}\n")
 
 # Writing MAE to a file
-with open('/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting_PRASHANTH_LAKKAKULA/output/task3_output/mae.txt', 'w') as f:
+with open('/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/output/task3/mae.txt', 'w') as f:
     f.write(f"Mean Absolute Error (MAE) on test data = {mae}\n")
 
 # Stop Spark Session

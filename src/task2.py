@@ -8,10 +8,10 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Define file paths
-online_retail_data_path = "/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting_PRASHANTH_LAKKAKULA/input/Online Retail.csv"
+online_retail_data_path = "/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/input/Online Retail.csv"
 
 # Define output paths
-output_path = "/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting_PRASHANTH_LAKKAKULA/output/task2"  # Base path for all output files
+output_path = "/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/output/task2"  # Base path for all output files
 
 # Load the dataset from CSV file
 online_retail_df = spark.read.csv(online_retail_data_path, header=True, inferSchema=True)

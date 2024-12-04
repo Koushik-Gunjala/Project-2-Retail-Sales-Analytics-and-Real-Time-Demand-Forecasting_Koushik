@@ -7,12 +7,12 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Define file paths
-sales_data_path = "C:/Project-2/input/train.csv"
-reviews_data_path = "C:/Project-2/input/Online Retail.csv"
+sales_data_path = "/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/input/train.csv"
+reviews_data_path = "/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/input/Online Retail.csv"
 
 # Define output paths
-output_sales_data_path = "C:/Project-2/output/"
-output_reviews_data_path = "C:/Project-2/output/"
+output_sales_data_path = "/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/output/cleaned_sales_data.csv"
+output_reviews_data_path = "/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/output/cleaned_review_data.csv"
 
 # Load the datasets from CSV files
 sales_df = spark.read.csv(sales_data_path, header=True, inferSchema=True)

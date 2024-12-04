@@ -15,7 +15,7 @@ spark = SparkSession.builder \
 concat_arrays_udf = udf(lambda x, y: x + y, ArrayType(StringType()))
 
 # Load data
-data_path = "/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting_PRASHANTH_LAKKAKULA/input/train.csv"  # Update the path to your CSV file
+data_path = "/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/input/train.csv"  # Update the path to your CSV file
 data = spark.read.csv(data_path, header=True, inferSchema=True).select("sentence", "main_image_url")
 
 # Rename column for clarity
@@ -59,10 +59,10 @@ auc = evaluator.evaluate(predictions)
 
 # Calculate average sentiment per product
 product_sentiment = predictions.groupBy("product_id").agg({"prediction": "avg"}).withColumnRenamed("avg(prediction)", "avg_sentiment")
-product_sentiment.write.csv("/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting_PRASHANTH_LAKKAKULA/output/task4/product_sentiments.csv")
+product_sentiment.write.csv("/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/output/task4/product_sentiments.csv")
 
 # Save evaluation results to a file
-with open("/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting_PRASHANTH_LAKKAKULA/output/task4/task4_output.txt", "w") as file:
+with open("/workspaces/Project-2-Retail-Sales-Analytics-and-Real-Time-Demand-Forecasting/output/task4/task_output.txt", "w") as file:
     file.write(f"Area Under ROC: {auc}\n")
 
 # Stop Spark session
